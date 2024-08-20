@@ -12,6 +12,7 @@ export interface GameQuery{
   genre:Genre|null;
   game:Game|null;
   platform:Platform|null;
+  shortOrder:string
 }
 
 const App = () => {
@@ -40,7 +41,7 @@ const App = () => {
         <GridItem area="main" >
           <HStack spacing={5} paddingLeft={10}>
           <PlatformSelector selectedPlatform={GameQuery.platform}  onSelectdPlatform={(platform)=>setGameQuery({...GameQuery, platform})}/>
-          <ShortSelector/>
+          <ShortSelector shortOrder={GameQuery.shortOrder} onSelectShort={(shortOrder)=> setGameQuery({...GameQuery, shortOrder})}/>
           </HStack>
           <GameGrid GameQuery={GameQuery}/>
           
